@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Jessica · USA | professional profile</title>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Inter (clean, modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f2f6;  /* soft neutral background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2), 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+            padding: 28px 22px 30px 22px;
+            text-align: center;
+            transition: transform 0.15s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* professional profile image with verified badge */
+        .profile-image {
+            position: relative;
+            width: 136px;
+            height: 136px;
+            margin: 0 auto 14px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.2);
+            background: #eaeef2;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: #1d9bf0;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border: 2px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        /* name & age row */
+        .name-age {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1e1e2a;
+            letter-spacing: -0.3px;
+        }
+
+        .age {
+            font-weight: 600;
+            color: #ff4b6e;
+            background: rgba(255, 75, 110, 0.08);
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 20px;
+            line-height: 1.2;
+            border: 1px solid rgba(255, 75, 110, 0.2);
+        }
+
+        /* location line with flag */
+        .location {
+            font-size: 16px;
+            font-weight: 500;
+            color: #4a4a5a;
+            background: #f0f2f5;
+            padding: 8px 16px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 8px 0 12px;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 18px;
+            background: url('https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png') no-repeat center/cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* online + viewer count (clean) */
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            background: #ffffff;
+            padding: 10px 20px;
+            border-radius: 60px;
+            width: fit-content;
+            margin: 8px auto 18px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #2c2c3a;
+            border: 1px solid #eaeef5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .online-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .online-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #34c759;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 rgba(52, 199, 89, 0.5);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.6); }
+            70% { box-shadow: 0 0 0 8px rgba(52, 199, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0); }
+        }
+
+        .viewer-count i {
+            color: #8e8e9d;
+            margin-right: 4px;
+        }
+
+        /* three action buttons */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 24px 0 22px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 10px;
+            border-radius: 100px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            transition: all 0.2s ease;
+            border: none;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn i {
+            font-size: 22px;
+        }
+
+        .btn.call {
+            background: linear-gradient(145deg, #2ecc71, #28a745);
+        }
+
+        .btn.message {
+            background: linear-gradient(145deg, #007aff, #005bb5);
+        }
+
+        .btn.live {
+            background: linear-gradient(145deg, #ff3b30, #d32f2f);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        /* minimalist footer – only 18+ */
+        .footer-note {
+            font-size: 14px;
+            color: #8a8a9e;
+            margin-top: 18px;
+            border-top: 1px solid #eceef2;
+            padding-top: 16px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .footer-note i {
+            color: #ff4b6e;
+        }
+
+        /* micro adjustments */
+        @media (max-width: 380px) {
+            .card { padding: 22px 16px; }
+            h2 { font-size: 28px; }
+            .btn { font-size: 18px; padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- professional profile image (high-quality, genuine) -->
+            <div class="profile-image">
+                <!-- Pexels image: young woman, professional yet approachable, suitable for dating profile -->
+                <img src="https://images.pexels.com/photos/3775132/pexels-photo-3775132.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" 
+                     alt="Jessica, USA profile"
+                     loading="lazy">
+                <!-- verified badge adds trust -->
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+
+            <!-- name & adult age (24) -->
+            <div class="name-age">
+                <h2>Jessica</h2>
+                <span class="age">24</span>
+            </div>
+
+            <!-- location with USA flag (concrete city) -->
+            <div class="location">
+                <i class="fas fa-map-marker-alt" style="color: #ff4b6e;"></i> Miami, Florida
+                <span class="flag-icon"></span>
+            </div>
+
+            <!-- clean status: online + real viewers (subtle social proof) -->
+            <div class="live-indicator">
+                <span class="online-badge">
+                    <span class="online-dot"></span> Online
+                </span>
+                <span class="viewer-count">
+                    <i class="fas fa-eye"></i> 31 viewing
+                </span>
+            </div>
+
+            <!-- three main call-to-action buttons (CPA links) -->
+            <div class="buttons">
+                <a href="https://shorturl.at/7guvY" target="_blank" rel="noopener noreferrer" class="btn call">
+                    <i class="fas fa-phone-alt"></i> Call Now
+                </a>
+                <a href="https://shorturl.at/3VjVT" target="_blank" rel="noopener noreferrer" class="btn message">
+                    <i class="fas fa-comment-dots"></i> Message Now
+                </a>
+                <a href="https://shorturl.at/3VjVT" target="_blank" rel="noopener noreferrer" class="btn live">
+                    <i class="fas fa-map-marker-alt"></i> Live Locations
+                </a>
+            </div>
+
+            <!-- footer: only "18+ only" – clean, compliant, professional -->
+            <div class="footer-note">
+                <i class="fas fa-id-card"></i> 18+ only
+                <span style="width: 4px; height: 4px; background: #ccc; border-radius: 50%;"></span>
+                <i class="fas fa-lock"></i> secure & private
+                <!-- Note: "Geo-targeted USA · private & secure" was removed as requested -->
+            </div>
+        </div>
+
+        <!-- ========== STRATEGY NOTE FOR USA TRAFFIC & EARNINGS ==========
+             - Use adult traffic networks (ExoClick, JuicyAds) with USA geo, age 21+.
+             - In ads, highlight "Miami/New York" and "live now".
+             - This page converts with urgency (online dot, viewer count) and clear buttons.
+             - The shortlinks are your CPA offers – ensure they are mobile-optimized.
+             - For higher trust, the image is high-resolution, and verified badge added.
+        -->
+    </div>
+</body>
+</html>
